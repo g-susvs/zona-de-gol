@@ -9,7 +9,6 @@ export const LoginPage = () => {
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   function handleCallbackResponse(response) {
-    // console.log(response.credential);
     dispatch(startGoogleSignIn(response.credential));
   }
   useEffect(() => {
@@ -32,7 +31,7 @@ export const LoginPage = () => {
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 main">
-            <form>
+            <form className="form-auth">
               <img src="img/logo-user.png" alt="" className="img-fluid logo" />
               <h1 className="titulo">Zona de Gol </h1>
               <h2 className="titulo-2">
@@ -42,7 +41,7 @@ export const LoginPage = () => {
                 Ingrese su Correo:
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control input-auth"
                   placeholder="me@example"
                 />
               </label>
@@ -50,7 +49,7 @@ export const LoginPage = () => {
                 Contraseña:
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control input-auth"
                   placeholder="Ingrese su contraseña"
                 />
               </label>
