@@ -43,18 +43,18 @@
     align-items: start;
 }
 .filtros-busqueda .fecha{
-    width: 200px;
+    width: 150px;
 }
 .filtros-busqueda .hora{
-    width: 200px;
+    width: 150px;
 
 }
 .filtros-busqueda .duracion{
-    width: 200px;
+    width: 150px;
 }
 
 .filtros-busqueda .superficie{
-    width: 200px;
+    width: 150px;
 }
 
 .cancha-list{

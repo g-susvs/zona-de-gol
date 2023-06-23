@@ -11,8 +11,9 @@ export const SearchView = () => {
 
   const { formState, onInputChange } = useForm({
     hora: `${currentHour}:00`,
-    duracion: "60",
-    superficie: "sintetico",
+    duracion: "duracion",
+    distrito: "distrito",
+    superficie: "superficie",
     fecha: currentDateValue,
   });
 
@@ -20,18 +21,11 @@ export const SearchView = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
 
-  const { hora, fecha } = formState;
+  const { hora, fecha, duracion, distrito, superficie } = formState;
 
   const handleOnClick = (event) => {
     event.preventDefault();
 
-    if (
-      formState.duracion === "duracion" ||
-      formState.superficie === "superficie"
-    ) {
-      console.log("selecciona correctamente");
-      return;
-    }
     const cDay = new Date().getTime();
     const selectDay = new Date(
       `${formState.fecha} ${formState.hora}`
@@ -43,9 +37,19 @@ export const SearchView = () => {
     }
 
     setIsLoading(true);
-    fetch(`${import.meta.env.VITE_API_HOST}/api/canchas/`)
+    console.log("==========");
+    console.log(formState);
+    console.log("==========");
+    fetch(
+      `${import.meta.env.VITE_API_HOST}/api/canchas?superficie=${
+        superficie !== "superficie" ? superficie : ""
+      }&duracion=${duracion !== "duracion" ? duracion : ""}&distrito=${
+        distrito !== "distrito" ? encodeURIComponent(distrito) : ""
+      }`
+    )
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data);
         setData(data.canchas);
         setIsLoading(false);
       })
@@ -125,10 +129,28 @@ export const SearchView = () => {
                 name="superficie"
                 onChange={onInputChange}
               >
-                <option defaultValue>Superficie</option>
+                <option defaultValue value="superficie">
+                  Superficie
+                </option>
                 <option value="natural">Césped natural</option>
                 <option value="sintetico">Césped sintético</option>
-                <option value="híbrido">Césped híbrido</option>
+                <option value="hibrido">Césped híbrido</option>
+              </select>
+            </div>
+            <div className="filtro-div">
+              <select
+                className="form-select superficie"
+                aria-label=".form-select-sm example"
+                name="distrito"
+                onChange={onInputChange}
+              >
+                <option defaultValue value="distrito">
+                  Distrito
+                </option>
+                <option value="Chorrillos">Chorrillos</option>
+                <option value="La Victoria">La Victoria</option>
+                <option value="Los olivos">Los olivos</option>
+                <option value="Miraflores">Miraflores</option>
               </select>
             </div>
           </section>
