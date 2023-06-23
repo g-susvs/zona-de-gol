@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-
 import { IoMdOptions } from "react-icons/io";
-
+import Swal from "sweetalert2";
 import { useForm, useDate } from "../../hooks/";
 import "../../css/busqueda.css";
 import { ListaCanchas } from "../components/ListaCanchas";
+import { useDispatch } from "react-redux";
+import { setCanchaSearch } from "../../store/cancha/canchaSlice";
 
 export const SearchView = () => {
+  const dispatch = useDispatch();
   const { currentDateValue, currentHour } = useDate();
 
   const { formState, onInputChange } = useForm({
@@ -32,14 +34,18 @@ export const SearchView = () => {
     ).getTime();
 
     if (!(selectDay >= cDay)) {
-      console.log("seleccione correctamente el día");
+      // alerta
+      Swal.fire({
+        title: "Error",
+        text: "El fecha que ha seleccionaado no es valida",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
       return;
     }
 
     setIsLoading(true);
-    console.log("==========");
-    console.log(formState);
-    console.log("==========");
+
     fetch(
       `${import.meta.env.VITE_API_HOST}/api/canchas?superficie=${
         superficie !== "superficie" ? superficie : ""
@@ -49,20 +55,22 @@ export const SearchView = () => {
     )
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         setData(data.canchas);
         setIsLoading(false);
+
+        // Guardar datos de la busqueda en el store
+        dispatch(setCanchaSearch({ fecha, hora, duracion, superficie }));
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   };
 
-  useEffect(() => {
-    if (isLoading) {
-      console.log("cargando");
-    }
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (isLoading) {
+  //     console.log("cargando");
+  //   }
+  // }, [isLoading]);
 
   return (
     <div className="busqueda">

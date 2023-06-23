@@ -3,18 +3,29 @@ import { createSlice } from "@reduxjs/toolkit";
 export const canchaSlice = createSlice({
   name: "cancha",
   initialState: {
-    id: "31312",
-    nombre: "sport lurin",
-    descripcion: "safs",
-    calificacion: 4,
-    duenio: "13123",
-    imagen: "URL-CLDNRY",
+    id: "",
+    fecha: "",
+    hora: "",
+    duracion: 60,
+    superficie: "",
+    imagen: "",
+    calificacion: "",
+    precio: 0,
   },
   reducers: {
-    increment: (state /* action */) => {
-      state.counter += 1;
+    setCanchaSearch: (state, { payload }) => {
+      state.fecha = payload.fecha;
+      state.hora = payload.hora;
+      state.duracion = payload.duracion;
+      state.superficie = payload.superficie;
+    },
+    setCanchaInfo: (state, { payload }) => {
+      state.id = payload.id;
+      state.imagen = payload.imagen;
+      state.calificacion = payload.calificacion;
+      state.precio = payload.precio;
     },
   },
 });
 
-export const { increment } = canchaSlice.actions;
+export const { setCanchaSearch, setCanchaInfo } = canchaSlice.actions;

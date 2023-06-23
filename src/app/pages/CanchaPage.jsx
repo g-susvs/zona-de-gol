@@ -4,6 +4,7 @@ import { useFetch } from "../../hooks/useFetch";
 import { useEffect } from "react";
 
 import "../../css/cancha-page.css";
+import { CanchaInfo } from "../views/CanchaInfo";
 
 export const CanchaPage = () => {
   const { id } = useParams();
@@ -12,9 +13,7 @@ export const CanchaPage = () => {
     `${import.meta.env.VITE_API_HOST}/api/canchas/${id}`
   );
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
     <section id="page">
@@ -34,7 +33,7 @@ export const CanchaPage = () => {
               <span className="nombre-local">{data.nombre_local}</span>
             </div>
           </header>
-          <main></main>
+          <CanchaInfo {...data} />
         </>
       )}
     </section>

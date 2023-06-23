@@ -1,0 +1,23 @@
+.cancha-view-info{
+    padding: 10px;
+}
+.cancha-view-info .info-fecha{
+    font-size: 1.4rem;
+    background-color: #dbdbdb;
+    padding: 10px;
+    border-radius: 10px;
+}
+.precio-duracion{
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+.precio-duracion select{
+    width: 150px;
+    height: 40px;
+}
+.precio-duracion p{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}

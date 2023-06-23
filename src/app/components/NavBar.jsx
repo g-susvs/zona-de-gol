@@ -24,34 +24,34 @@ export const NavBar = () => {
               </li>
             </NavLink>
 
-            <NavLink className="NavLink nav-item-active">
+            <NavLink className="NavLink">
               <li className="nav-link">
                 <MdBackupTable />
                 <span className="text nav-text">Reservas</span>
               </li>
             </NavLink>
 
-            <NavLink className="NavLink nav-item-active">
+            <NavLink className="NavLink">
               <li className="nav-link">
                 <IoMdNotifications />
                 <span className="text nav-text">Notificaciones</span>
               </li>
             </NavLink>
 
-            <NavLink className="NavLink nav-item-active">
+            <NavLink className="NavLink">
               <li className="nav-link">
                 <AiFillStar />
                 <span className="text nav-text">Canchas Favoritas</span>
               </li>
             </NavLink>
 
-            <NavLink className="NavLink nav-item-active">
+            <NavLink className="NavLink">
               <li className="nav-link">
                 <ImArrowUp />
                 <span className="text nav-text">Canchas Populares</span>
               </li>
             </NavLink>
-            <NavLink className="NavLink nav-item-active">
+            <NavLink className="NavLink">
               <li className="nav-link">
                 <AiTwotoneSetting />
                 <span className="text nav-text">Configuración</span>

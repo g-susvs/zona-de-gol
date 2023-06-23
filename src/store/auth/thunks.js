@@ -26,8 +26,6 @@ export const startGoogleSignIn = (tokenId) => {
 
     dispatch(login(state));
     localStorage.setItem("zdg_token", token);
-    console.log(data);
-    console.log("Authenticado");
 
     // dispatch(login(result));
   };

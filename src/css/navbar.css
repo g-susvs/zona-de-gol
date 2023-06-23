@@ -76,7 +76,7 @@
     opacity: 1;
 }
 .nav-link:hover{
-    background-color: #2ead4a;
+    background-color: #299e5a;
 }
 .NavLink:hover .text{
     color: #ffffff;
@@ -89,11 +89,14 @@
     text-decoration: none;
 }
 
-.item-active{
+.nav-item-active{
     text-decoration: none;
 }
-.item-active svg{
-    color:#2ead4a;
+.nav-item-active .nav-link span{
+    color:#299e5a;
+}
+.nav-item-active svg{
+    color:#299e5a;
 }
 
 /* NavBar */

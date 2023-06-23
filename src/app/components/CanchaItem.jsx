@@ -13,7 +13,6 @@ export const CanchaItem = ({
 
   const handleCanchaSelected = (event) => {
     event.preventDefault();
-    console.log("Cancha seleccionada: " + _id);
     navigate(`/cancha/${_id}`);
   };
 
