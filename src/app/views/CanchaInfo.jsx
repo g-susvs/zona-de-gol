@@ -3,9 +3,11 @@ import Swal from "sweetalert2";
 import "../../css/cancha-info.css";
 import { useEffect, useState } from "react";
 import { setCanchaInfo } from "../../store/cancha/canchaSlice";
+import { useNavigate } from "react-router-dom";
+import { crearReserva } from "../../store/reserva/thunks";
 
 export const CanchaInfo = ({
-  _id,
+  cancha_id,
   descripcion,
   imagen,
   distrito,
@@ -13,7 +15,10 @@ export const CanchaInfo = ({
   calificacion,
   precios = [],
 }) => {
+  const [nextPage, setnextPage] = useState(false);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { id: reserva_id, status } = useSelector((state) => state.reserva);
   const { fecha, hora, duracion } = useSelector((state) => state.cancha);
 
   const [precioDuracion, setPrecioDuracion] = useState({
@@ -51,12 +56,24 @@ export const CanchaInfo = ({
     dispatch(
       setCanchaInfo({
         imagen,
-        id: _id,
+        id: cancha_id,
         calificacion,
         precio: precioDuracion.precio,
+        duracion: precioDuracion.duracion,
       })
     );
+
+    dispatch(crearReserva());
+    // setTimeout(() => {
+    // setnextPage(true);
+    // }, 3000);
   };
+
+  useEffect(() => {
+    if (status == "con") {
+      navigate(`/reserva/${reserva_id}`);
+    }
+  }, [status]);
 
   return (
     <main className="cancha-view-info">

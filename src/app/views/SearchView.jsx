@@ -59,7 +59,7 @@ export const SearchView = () => {
         setIsLoading(false);
 
         // Guardar datos de la busqueda en el store
-        dispatch(setCanchaSearch({ fecha, hora, duracion, superficie }));
+        dispatch(setCanchaSearch({ fecha, hora, duracion }));
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -157,8 +157,11 @@ export const SearchView = () => {
                 </option>
                 <option value="Chorrillos">Chorrillos</option>
                 <option value="La Victoria">La Victoria</option>
-                <option value="Los olivos">Los olivos</option>
+                <option value="Los Olivos">Los Olivos</option>
                 <option value="Miraflores">Miraflores</option>
+                <option value="San Martín">San Martín</option>
+                <option value="Santa Anita">Santa Anita</option>
+                <option value="Breña">Breña</option>
               </select>
             </div>
           </section>

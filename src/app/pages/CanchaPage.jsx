@@ -5,9 +5,14 @@ import { useEffect } from "react";
 
 import "../../css/cancha-page.css";
 import { CanchaInfo } from "../views/CanchaInfo";
+import { useDispatch } from "react-redux";
+import { removeReservaData } from "../../store/reserva/reservaSlice";
 
 export const CanchaPage = () => {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
+  dispatch(removeReservaData());
 
   const { data } = useFetch(
     `${import.meta.env.VITE_API_HOST}/api/canchas/${id}`
@@ -33,7 +38,7 @@ export const CanchaPage = () => {
               <span className="nombre-local">{data.nombre_local}</span>
             </div>
           </header>
-          <CanchaInfo {...data} />
+          <CanchaInfo cancha_id={id} {...data} />
         </>
       )}
     </section>

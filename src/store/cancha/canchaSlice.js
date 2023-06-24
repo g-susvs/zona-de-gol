@@ -7,7 +7,6 @@ export const canchaSlice = createSlice({
     fecha: "",
     hora: "",
     duracion: 60,
-    superficie: "",
     imagen: "",
     calificacion: "",
     precio: 0,
@@ -17,13 +16,13 @@ export const canchaSlice = createSlice({
       state.fecha = payload.fecha;
       state.hora = payload.hora;
       state.duracion = payload.duracion;
-      state.superficie = payload.superficie;
     },
     setCanchaInfo: (state, { payload }) => {
       state.id = payload.id;
       state.imagen = payload.imagen;
       state.calificacion = payload.calificacion;
       state.precio = payload.precio;
+      state.duracion = payload.duracion;
     },
   },
 });
