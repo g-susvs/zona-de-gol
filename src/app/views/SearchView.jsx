@@ -6,6 +6,7 @@ import "../../css/busqueda.css";
 import { ListaCanchas } from "../components/ListaCanchas";
 import { useDispatch } from "react-redux";
 import { setCanchaSearch } from "../../store/cancha/canchaSlice";
+import { config } from "../../config";
 
 export const SearchView = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ export const SearchView = () => {
     setIsLoading(true);
 
     fetch(
-      `${import.meta.env.VITE_API_HOST}/api/canchas?superficie=${
+      `${config.API_HOST}/api/canchas?superficie=${
         superficie !== "superficie" ? superficie : ""
       }&duracion=${duracion !== "duracion" ? duracion : ""}&distrito=${
         distrito !== "distrito" ? encodeURIComponent(distrito) : ""
