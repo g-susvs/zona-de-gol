@@ -1,9 +1,10 @@
+import { config } from "../../config";
 import { checkingCredential, login } from "./authSlice";
 
 export const startGoogleSignIn = (tokenId) => {
   return async (dispatch) => {
     dispatch(checkingCredential());
-    const url = `${import.meta.env.VITE_API_HOST}/api/usuarios/google`;
+    const url = `${config.API_HOST}/api/usuarios/google`;
     const body = { id_token: tokenId };
 
     const resp = await fetch(url, {

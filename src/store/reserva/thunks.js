@@ -1,3 +1,4 @@
+import { config } from "../../config";
 import { setReservaData, setReservaId } from "./reservaSlice";
 
 export const crearReserva = () => {
@@ -11,7 +12,7 @@ export const crearReserva = () => {
       estado_de_reserva: "pendiente",
     };
 
-    const url = `${import.meta.env.VITE_API_HOST}/api/reservas`;
+    const url = `${config.API_HOST}/api/reservas`;
 
     const token = localStorage.getItem("zdg_token");
     const resp = await fetch(url, {
@@ -36,7 +37,7 @@ export const crearReserva = () => {
 
 export const getReservaPorId = (id) => {
   return async (dispatch) => {
-    const url = `${import.meta.env.VITE_API_HOST}/api/reservas/${id}`;
+    const url = `${config.API_HOST}/api/reservas/${id}`;
 
     const token = localStorage.getItem("zdg_token");
     const resp = await fetch(url, {
