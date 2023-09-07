@@ -10,6 +10,7 @@ import { GiDuration } from "react-icons/gi";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 import "../../css/reserva-page.css";
+import { config } from "../../config";
 
 export const ReservaPage = () => {
   const { id: reserva_id } = useParams();
@@ -28,7 +29,7 @@ export const ReservaPage = () => {
   }
   useEffect(() => {
     const token = localStorage.getItem("zdg_token");
-    fetch(`${import.meta.env.VITE_API_HOST}/api/reservas/${reserva_id}`, {
+    fetch(`${config.API_HOST}/api/reservas/${reserva_id}`, {
       method: "GET",
       headers: {
         "x-token": token,

@@ -2,11 +2,12 @@ import "../../css/auth.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { startGoogleSignIn } from "../../store/auth/thunks";
+import { config } from "../../config";
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
 
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const clientId = config.GOOGLE_CLIENT_ID;
 
   function handleCallbackResponse(response) {
     dispatch(startGoogleSignIn(response.credential));

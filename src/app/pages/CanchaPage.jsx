@@ -7,16 +7,14 @@ import "../../css/cancha-page.css";
 import { CanchaInfo } from "../views/CanchaInfo";
 import { useDispatch } from "react-redux";
 import { removeReservaData } from "../../store/reserva/reservaSlice";
+import { config } from "../../config";
 
 export const CanchaPage = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
   dispatch(removeReservaData());
-
-  const { data } = useFetch(
-    `${import.meta.env.VITE_API_HOST}/api/canchas/${id}`
-  );
+  const { data } = useFetch(`${config.API_HOST}/api/canchas/${id}`);
 
   useEffect(() => {}, [data]);
 
