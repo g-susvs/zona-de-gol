@@ -22,6 +22,7 @@ export const ReservaPage = () => {
   const { nombre_local, imagen, duracion, precio, fecha } = useSelector(
     (state) => state.reserva
   );
+  // const imgSrc = imagen.includes("https") ? imagen : "/public/img/no-image.jpg";
 
   let fechaArr;
   if (fecha) {
@@ -60,6 +61,7 @@ export const ReservaPage = () => {
         );
         setIsLoading(false);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reserva_id]);
 
   return (

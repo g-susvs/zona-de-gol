@@ -25,6 +25,7 @@ export const LoginPage = () => {
       theme: "outline",
       size: "large",
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -33,7 +34,11 @@ export const LoginPage = () => {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 main">
             <form className="form-auth">
-              <img src="img/logo-user.png" alt="" className="img-fluid logo" />
+              <img
+                src="img/logo-app.png"
+                alt="logo-app"
+                className="img-fluid logo"
+              />
               <h1 className="titulo">Zona de Gol </h1>
               <h2 className="titulo-2">
                 Inicia Sesión para acceder a la plataforma
@@ -67,7 +72,7 @@ export const LoginPage = () => {
               <div id="signInDiv"></div>
               <br />
               ¿No tienes cuenta?{" "}
-              <a href="registro.html" className="link-2">
+              <a href="#" className="link-2">
                 {" "}
                 Registrate!
               </a>

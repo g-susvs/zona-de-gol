@@ -21,7 +21,7 @@ export const NavUserInfo = () => {
     <header>
       <div className="image-text">
         <span className="image">
-          <img src={img} alt="user-img" />
+          <img src={urlImg} alt="user-img" />
         </span>
 
         <div className="text logo-text">

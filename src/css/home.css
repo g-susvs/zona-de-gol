@@ -43,7 +43,7 @@
 
 #page> .header-home {
     grid-area: head;
-background: linear-gradient(63deg, rgb(1, 58, 66) 0%, rgb(0, 150, 57) 100%);
+    background: linear-gradient(63deg, rgb(1, 58, 66) 0%, rgb(0, 150, 57) 100%);
     color: #ffffff;
     display: flex;
     justify-content: center;

@@ -15,7 +15,7 @@ export const CanchaInfo = ({
   calificacion,
   precios = [],
 }) => {
-  const [nextPage, setnextPage] = useState(false);
+  // const [nextPage, setnextPage] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id: reserva_id, status } = useSelector((state) => state.reserva);
