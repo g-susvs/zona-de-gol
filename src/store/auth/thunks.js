@@ -17,7 +17,7 @@ export const startGoogleSignIn = (tokenId) => {
 
     const data = await resp.json();
     const { token, usuario } = data;
-
+    // console.log(data);
     const state = {
       uid: usuario.uid,
       correo: usuario.correo,
